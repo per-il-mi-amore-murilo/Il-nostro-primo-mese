@@ -1,11 +1,4 @@
 (() => {
-  const ab = document.querySelector('.abertura');
-  if (ab) {
-    const fim = () => ab.remove();
-    setTimeout(fim, 4800);
-    addEventListener('pointerdown', fim, { once: true });
-  }
-
   const root = document.querySelector('.creditos');
   if (!root) return;
   const rolo = root.querySelector('.creditos__rolo');
@@ -53,13 +46,20 @@
     const antes = visivel;
     visivel = e.isIntersecting;
     if (visivel && !antes) reiniciar(performance.now());
-  }, { threshold: 0.35 }).observe(root);
+    if (!visivel && antes) {
+      fase = 'intro';
+      if (intro) intro.classList.remove('on');
+      y = comeco();
+      aplicar();
+    }
+  }, { threshold: 0.6 }).observe(root);
 
   root.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') pausado = true; });
   root.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') pausado = false; });
   root.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') pausado = !pausado; });
   root.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); pausado = !pausado; } });
 
-  reiniciar(performance.now());
+  y = comeco();
+  aplicar();
   requestAnimationFrame(t => { ultimo = t; passo(t); });
 })();
