@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add("js")</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f1d15">
   <title>Para você, meu amor</title>
@@ -12,7 +13,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="abertura" aria-hidden="true"><span class="abertura__cora">♥</span><span class="abertura__txt">Para você, meu amor</span></div>
+  <div class="abertura" aria-hidden="true">
+    <div class="cortina cortina--e"></div>
+    <div class="cortina cortina--d"></div>
+    <div class="abertura__centro">
+      <svg class="abertura__svg" viewBox="-6 -6 112 106" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b6f5c4"/><stop offset="1" stop-color="#2f9e5b"/></linearGradient>
+        </defs>
+        <path class="abertura__preench" d="M50 88 C20 62 6 44 6 28 C6 14 17 6 29 6 C38 6 46 11 50 19 C54 11 62 6 71 6 C83 6 94 14 94 28 C94 44 80 62 50 88Z" fill="url(#gv)"/>
+        <path class="abertura__traco" pathLength="1" d="M50 88 C20 62 6 44 6 28 C6 14 17 6 29 6 C38 6 46 11 50 19 C54 11 62 6 71 6 C83 6 94 14 94 28 C94 44 80 62 50 88Z" fill="none" stroke="#d9ffe3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="abertura__titulo">Para você, meu amor</p>
+      <p class="abertura__sub">um filme de Anna</p>
+    </div>
+  </div>
   <div class="grao" aria-hidden="true"></div>
 
   <header class="hero">
@@ -43,7 +58,6 @@
   </header>
 
   <main>
-    <!-- galeria polaroids -->
     <section class="secao" id="galeria" aria-labelledby="t-galeria">
       <h2 class="secao__titulo" id="t-galeria">Nossos retratos</h2>
       <div class="galeria">
@@ -80,7 +94,6 @@
       </div>
     </section>
 
-    <!-- músicas -->
     <section class="secao" id="musicas" aria-labelledby="t-musicas">
       <h2 class="secao__titulo" id="t-musicas">As músicas da nossa vida</h2>
       <p class="secao__intro">As paradas de sucesso do nosso amor. Toque no nome para ouvir no Spotify.</p>
@@ -125,7 +138,6 @@
       </ol>
     </section>
 
-    <!-- cartas -->
     <section class="secao" id="cartas" aria-labelledby="t-cartas">
       <h2 class="secao__titulo" id="t-cartas">Cartas para abrir</h2>
       <p class="secao__intro">Toque no envelope para ler.</p>
@@ -163,7 +175,6 @@
       </div>
     </section>
 
-    <!-- quebra-cabeça -->
     <section class="secao" id="creditos" aria-labelledby="t-creditos">
       <h2 class="secao__titulo" id="t-creditos">Créditos</h2>
       <p class="secao__intro">Que a força do nosso amor esteja com você. Toque para pausar.</p>
@@ -191,7 +202,6 @@
     </section>
   </main>
 
-  <!-- rodapé -->
   <footer class="fim">
     <p class="fim__cortina" aria-hidden="true">♥ ♥ ♥</p>
     <p class="fim__titulo">The End</p>
@@ -199,5 +209,6 @@
     <p class="fim__frase">…ou melhor, to be continued.</p>
     <p class="fim__credito">Direção, roteiro e amor: sua Anna</p>
   </footer>
+  <script src="script.js" defer></script>
 </body>
 </html>
