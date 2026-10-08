@@ -66,43 +66,34 @@
 
 
 (() => {
-  const trilho = document.querySelector('.universos');
-  if (!trilho) return;
-  const cards = [...trilho.querySelectorAll('.universo')];
-  const cont = document.querySelector('.multi__cont');
-  const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const comportamento = reduzir ? 'auto' : 'smooth';
-  let atual = 0;
+  const cards = [...document.querySelectorAll('.mv__card')];
+  const vazio = document.querySelector('.mv__vazio');
+  const btn = document.querySelector('.multi__sorteio');
+  const cont = document.querySelector('.mv__cont');
+  if (!cards.length || !btn) return;
 
-  const passo = () => cards[0].offsetWidth + parseFloat(getComputedStyle(trilho).columnGap || 0);
-  const ir = i => {
-    i = Math.max(0, Math.min(cards.length - 1, i));
-    const alvo = cards[i].offsetLeft - (trilho.clientWidth - cards[i].offsetWidth) / 2;
-    trilho.scrollTo({ left: alvo, behavior: comportamento });
-  };
-  const atualizar = () => {
-    const centro = trilho.scrollLeft + trilho.clientWidth / 2;
-    let melhor = 0, dist = Infinity;
-    cards.forEach((c, i) => {
-      const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - centro);
-      if (d < dist) { dist = d; melhor = i; }
-    });
-    atual = melhor;
-    if (cont) cont.textContent = `${atual + 1} / ${cards.length}`;
+  let fila = [], ultimo = -1, vistos = 0;
+
+  const embaralhar = a => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   };
 
-  trilho.addEventListener('scroll', () => requestAnimationFrame(atualizar), { passive: true });
-  document.querySelectorAll('.multi__btn').forEach(b =>
-    b.addEventListener('click', () => ir(atual + Number(b.dataset.dir))));
-  const sorteio = document.querySelector('.multi__sorteio');
-  if (sorteio) sorteio.addEventListener('click', () => {
-    let i;
-    do { i = Math.floor(Math.random() * cards.length); } while (i === atual && cards.length > 1);
-    ir(i);
+  btn.addEventListener('click', () => {
+    if (!fila.length) {
+      fila = embaralhar(cards.map((_, i) => i));
+      if (fila.length > 1 && fila[0] === ultimo) fila.push(fila.shift());
+      vistos = 0;
+    }
+    const i = fila.shift();
+    ultimo = i;
+    vistos++;
+    cards.forEach((c, k) => c.classList.toggle('on', k === i));
+    if (vazio) vazio.hidden = true;
+    btn.textContent = '✦ Sortear outro';
+    if (cont) cont.textContent = `${vistos} / ${cards.length}` + (fila.length ? '' : ' · todos vistos!');
   });
-  trilho.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); ir(atual + 1); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); ir(atual - 1); }
-  });
-  atualizar();
 })();
