@@ -153,3 +153,24 @@ main { filter: none; }
 
 /* sem tremedeira de projetor nos quadros do rolo */
 .quadro { animation: none !important; }
+
+/* ===== Claquete agora fica abaixo do "deslize →" ===== */
+.hero__dica { margin-bottom: 0; }
+.claquete { margin: 3.4rem auto 2.4rem; }
+
+/* ===== Etiquetas "Cena · Take" ~20% mais baixas ===== */
+.secao { padding-top: 4.2rem; }
+.secao[data-cena]::before { top: 1.9rem; left: 1.4rem; }
+#creditos[data-cena]::before { top: 1.9rem; }
+
+/* ===== Sem sombra no quadrado dos créditos ===== */
+main { filter: none !important; }
+#creditos, #creditos .creditos, #creditos .creditos__rolo { box-shadow: none !important; filter: none !important; }
+
+/* ===== Tudo em máquina de escrever ===== */
+* { font-family: var(--f-texto); }
+h1, h2, h3, .secao__titulo, .hero__titulo, .fim__titulo, .cr__nome, .claquete__corpo b,
+.mv__vazio, .mv__nomes, .mv__cont, .multi__sorteio, .multi__chamada, .faixa__nome, .faixa__info strong,
+.carta__assinatura, .creditos__intro { font-family: var(--f-titulo); }
+button, summary, input, textarea { font-family: var(--f-texto); }
+.multi__sorteio { font-family: var(--f-titulo); }
