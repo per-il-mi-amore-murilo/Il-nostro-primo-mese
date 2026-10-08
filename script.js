@@ -38,7 +38,7 @@
       return;
     }
     y -= velocidade * dt;
-    if (y <= fimY()) { reiniciar(agora); return; }
+    if (y <= fimY()) { const f = document.querySelector('.fim'); if (f) f.classList.add('on'); reiniciar(agora); return; }
     aplicar();
   }
 
