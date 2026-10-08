@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="multiverso.css">
 </head>
 <body>
   <div class="grao" aria-hidden="true"></div>
@@ -161,68 +162,49 @@
 
     <section class="secao" id="cartas" aria-labelledby="t-cartas">
       <h2 class="secao__titulo" id="t-cartas">Em outro multiverso</h2>
-      <p class="secao__intro">Deslize para visitar outros universos.</p>
+      <p class="secao__intro">Toque em sortear para visitar outros universos.</p>
       <div class="multi">
         <div class="multi__carta">
           <p>Dizem que existem infinitas realidades no multiverso e tenho certeza de que em todas elas eu te amaria. Teríamos nossa mesma essência, você sendo você, com esse jeito de Golden Retriever e eu mais fechada, às vezes rindo envergonhada das besteiras que você diz, às vezes emburrada com algo, mas sempre sendo completamente apaixonada por ti.</p>
           <p class="multi__chamada">Amaria-te se fôssemos…</p>
         </div>
-        <div class="universos" tabindex="0" role="group" aria-label="Universos paralelos">
-          <article class="universo" aria-label="Universo 01: Carol Ferris &amp; Hal Jordan">
-            <p class="universo__num">Universo 01</p>
-            <h3 class="universo__nomes">Carol Ferris &amp; Hal Jordan</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Você voando sem freio com essa coragem meio doida (só falta virar piloto de testes) e eu com o meu jeito racional e de “personalidade forte” segundo você, que não abaixa a cabeça pra ninguém. Mas que no fundo (nem tão fundo assim) é completamente apaixonada por ti a ponto de mover galáxias.</p>
+        <div class="mv" aria-live="polite">
+          <div class="mv__vazio"><p>✦<br>Aperte em sortear<br>para abrir um universo</p></div>
+          <article class="mv__card" style="--img:url('images/personagem01.jpg');--pos:center" aria-label="Universo 01: Carol Ferris &amp; Hal Jordan">
+            <div class="mv__topo"><p class="mv__num">Universo 01</p><h3 class="mv__nomes">Carol Ferris &amp; Hal Jordan</h3></div>
+            <p class="mv__texto">Você voando sem freio com essa coragem meio doida (só falta virar piloto de testes) e eu com o meu jeito racional e de “personalidade forte” segundo você, que não abaixa a cabeça pra ninguém. Mas que no fundo (nem tão fundo assim) é completamente apaixonada por ti a ponto de mover galáxias.</p>
           </article>
-          <article class="universo" aria-label="Universo 02: Alicia Masters &amp; Ben Grimm">
-            <p class="universo__num">Universo 02</p>
-            <h3 class="universo__nomes">Alicia Masters &amp; Ben Grimm</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Você tentando parecer intransigente, escondendo esse seu jeito sensível, e eu enxergando exatamente quem você é. Cega, mas cega de amor pelo teu jeito de se importar com o mundo e com as pessoas ao seu redor.</p>
+          <article class="mv__card" style="--img:url('images/personagem02.jpg');--pos:center 40%" aria-label="Universo 02: Alicia Masters &amp; Ben Grimm">
+            <div class="mv__topo"><p class="mv__num">Universo 02</p><h3 class="mv__nomes">Alicia Masters &amp; Ben Grimm</h3></div>
+            <p class="mv__texto">Você tentando parecer intransigente, escondendo esse seu jeito sensível, e eu enxergando exatamente quem você é. Cega, mas cega de amor pelo teu jeito de se importar com o mundo e com as pessoas ao seu redor.</p>
           </article>
-          <article class="universo" aria-label="Universo 03: Chico Bento &amp; Rosinha">
-            <p class="universo__num">Universo 03</p>
-            <h3 class="universo__nomes">Chico Bento &amp; Rosinha</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Nós no nosso próprio ritmo, conversando, rindo à toa e você só pensando em pegar goiaba no vizinho KKKKK</p>
+          <article class="mv__card" style="--img:url('images/personagem03.jpg');--pos:center" aria-label="Universo 03: Chico Bento &amp; Rosinha">
+            <div class="mv__topo"><p class="mv__num">Universo 03</p><h3 class="mv__nomes">Chico Bento &amp; Rosinha</h3></div>
+            <p class="mv__texto">Nós no nosso próprio ritmo, conversando, rindo à toa e você só pensando em pegar goiaba no vizinho KKKKK</p>
           </article>
-          <article class="universo" aria-label="Universo 04: Johnny &amp; Mavis">
-            <p class="universo__num">Universo 04</p>
-            <h3 class="universo__nomes">Johnny &amp; Mavis</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Você chegando com esse seu jeito barulhento e hiperativo, bagunçando completamente (de um jeito bom) o meu mundo reservado, me fazendo me apaixonar por ti um pouquinho mais a cada dia.</p>
+          <article class="mv__card" style="--img:url('images/personagem04.jpg');--pos:center 78%" aria-label="Universo 04: Johnny &amp; Mavis">
+            <div class="mv__topo"><p class="mv__num">Universo 04</p><h3 class="mv__nomes">Johnny &amp; Mavis</h3></div>
+            <p class="mv__texto">Você chegando com esse seu jeito barulhento e hiperativo, bagunçando completamente (de um jeito bom) o meu mundo reservado, me fazendo me apaixonar por ti um pouquinho mais a cada dia.</p>
           </article>
-          <article class="universo" aria-label="Universo 05: Catherine Morland &amp; Henry Tilney">
-            <p class="universo__num">Universo 05</p>
-            <h3 class="universo__nomes">Catherine Morland &amp; Henry Tilney</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Você trazendo essa vibe de Golden Retriever, sem esconder o quanto gosta das minhas estranhezas.</p>
+          <article class="mv__card" style="--img:url('images/personagem05.jpg');--pos:center 15%" aria-label="Universo 05: Catherine Morland &amp; Henry Tilney">
+            <div class="mv__topo"><p class="mv__num">Universo 05</p><h3 class="mv__nomes">Catherine Morland &amp; Henry Tilney</h3></div>
+            <p class="mv__texto">Você trazendo essa vibe de Golden Retriever, sem esconder o quanto gosta das minhas estranhezas.</p>
           </article>
-          <article class="universo" aria-label="Universo 06: Vanessa Ives &amp; Ethan Chandler">
-            <p class="universo__num">Universo 06</p>
-            <h3 class="universo__nomes">Vanessa Ives &amp; Ethan Chandler</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Eu sempre séria, reservada e lidando com meus próprios demônios internos, e você sendo o meu porto seguro no meio do caos, de uma forma sempre doce, carinhosa e pronto pra segurar a minha mão quando as sombras chegam perto.</p>
+          <article class="mv__card" style="--img:url('images/personagem06.jpg');--pos:center" aria-label="Universo 06: Vanessa Ives &amp; Ethan Chandler">
+            <div class="mv__topo"><p class="mv__num">Universo 06</p><h3 class="mv__nomes">Vanessa Ives &amp; Ethan Chandler</h3></div>
+            <p class="mv__texto">Eu sempre séria, reservada e lidando com meus próprios demônios internos, e você sendo o meu porto seguro no meio do caos, de uma forma sempre doce, carinhosa e pronto pra segurar a minha mão quando as sombras chegam perto.</p>
           </article>
-          <article class="universo" aria-label="Universo 07: Ravena &amp; Mutano">
-            <p class="universo__num">Universo 07</p>
-            <h3 class="universo__nomes">Ravena &amp; Mutano</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Você fazendo piada ruim e graça o dia inteiro só pra me arrancar um sorriso, mesmo quando eu tento ficar séria.</p>
+          <article class="mv__card" style="--img:url('images/personagem07.jpg');--pos:center 40%" aria-label="Universo 07: Ravena &amp; Mutano">
+            <div class="mv__topo"><p class="mv__num">Universo 07</p><h3 class="mv__nomes">Ravena &amp; Mutano</h3></div>
+            <p class="mv__texto">Você fazendo piada ruim e graça o dia inteiro só pra me arrancar um sorriso, mesmo quando eu tento ficar séria.</p>
           </article>
-          <article class="universo" aria-label="Universo 08: Gomez &amp; Mortícia Addams">
-            <p class="universo__num">Universo 08</p>
-            <h3 class="universo__nomes">Gomez &amp; Mortícia Addams</h3>
-            <p class="universo__orn" aria-hidden="true">✦</p>
-            <p class="universo__texto">Você sempre extremamente apaixonado por mim, amando-me até em meus silêncios mais frios, e eu com a certeza de que somos perfeitos na nossa própria estranheza.</p>
+          <article class="mv__card" style="--img:url('images/personagem08.jpg');--pos:center 25%" aria-label="Universo 08: Gomez &amp; Mortícia Addams">
+            <div class="mv__topo"><p class="mv__num">Universo 08</p><h3 class="mv__nomes">Gomez &amp; Mortícia Addams</h3></div>
+            <p class="mv__texto">Você sempre extremamente apaixonado por mim, amando-me até em meus silêncios mais frios, e eu com a certeza de que somos perfeitos na nossa própria estranheza.</p>
           </article>
-        </div>
-        <div class="multi__ctrl">
-          <button type="button" class="multi__btn" data-dir="-1" aria-label="Universo anterior">‹</button>
-          <span class="multi__cont" aria-live="polite">1 / 8</span>
-          <button type="button" class="multi__btn" data-dir="1" aria-label="Próximo universo">›</button>
         </div>
         <button type="button" class="multi__sorteio">✦ Sortear um universo</button>
+        <p class="mv__cont" aria-live="polite">0 / 8</p>
       </div>
     </section>
 
