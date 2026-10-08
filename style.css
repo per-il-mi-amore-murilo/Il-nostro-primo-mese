@@ -617,7 +617,7 @@ body { animation: aparecer 1s ease both; }
   .coracoes span { opacity: 0; }
     .creditos { perspective: none; }
   .creditos__intro { display: none; }
-  .creditos__rolo { transform: translateY(102%); opacity: 1; animation: sw-plano 90s linear infinite; }
+  .creditos__rolo { transform: translateY(102%); opacity: 1; animation: sw-plano 40s linear infinite; }
   @keyframes sw-plano { from { transform: translateY(102%); } to { transform: translateY(-125%); } }
   .creditos:hover .creditos__rolo, .creditos:active .creditos__rolo, .creditos:focus-within .creditos__rolo { animation-play-state: paused; }
 }
@@ -625,3 +625,40 @@ body { animation: aparecer 1s ease both; }
 .js .creditos__rolo { animation: none; transform: rotateX(52deg) translateY(110%); will-change: transform; }
 .js .creditos__intro { animation: none; opacity: 0; transition: opacity 1s ease; }
 .js .creditos__intro.on { opacity: 1; }
+
+
+/* ===== Ranking em cartões (melhor no celular) ===== */
+.ranking { display: grid; gap: .8rem; }
+.faixa, .faixa:last-child {
+  position: relative;
+  display: grid; grid-template-columns: 2.6rem 1fr; align-items: start; gap: .15rem .9rem;
+  padding: .85rem 1rem .85rem .8rem; min-height: 0;
+  background: rgba(255,255,255,.38);
+  border: 1px solid rgba(31,61,46,.28); border-radius: 12px;
+  box-shadow: 0 2px 0 rgba(31,61,46,.12);
+}
+.faixa:hover, .faixa:active { background: rgba(201,162,39,.2); transform: none; padding: .85rem 1rem .85rem .8rem; }
+.faixa__pos {
+  grid-row: 1; flex: none; align-self: start;
+  width: 2.4rem; height: 2.4rem; display: grid; place-items: center;
+  border-radius: 50%; background: var(--verde); color: var(--papel);
+  font-size: 1.15rem; text-shadow: none;
+}
+.faixa__info { grid-column: 2; display: block; }
+.faixa__info strong { display: block; font-size: 1.12rem; line-height: 1.25; }
+.faixa__artista { display: block; margin-top: .1rem; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; opacity: .65; }
+.faixa__desc { display: block; margin-top: .45rem; font-size: .9rem; line-height: 1.5; opacity: .88; }
+.faixa--ouro { background: linear-gradient(135deg, rgba(201,162,39,.38), rgba(255,255,255,.3)); border-color: var(--ouro); border-width: 2px; }
+.faixa--ouro .faixa__pos { width: 2.4rem; font-size: 1.15rem; background: var(--ouro); color: var(--verde); text-shadow: none; }
+.faixa__sel { position: absolute; top: .6rem; right: .7rem; margin: 0; width: 1.6rem; height: 1.6rem; font-size: .8rem; box-shadow: 0 0 0 2px var(--ouro); }
+.faixa--ouro .faixa__info { padding-right: 1.8rem; }
+.faixa__link { text-decoration: none; }
+.faixa__link::before { content: ""; position: absolute; inset: 0; z-index: 1; }
+
+/* ===== Créditos: mais ritmo e acabamento ===== */
+.cr { margin-bottom: 1.5rem; }
+.cr:first-child { margin-bottom: 2.4rem; }
+.cr__papel { font-size: .72rem; letter-spacing: .32em; opacity: .75; }
+.cr__nome { font-size: 1.3rem; text-shadow: 0 0 14px rgba(255,213,74,.35); }
+.cr:first-child .cr__nome { font-size: 2.1rem; text-shadow: 0 0 22px rgba(255,213,74,.55); }
+.cr--fim { margin-top: 2rem; }
