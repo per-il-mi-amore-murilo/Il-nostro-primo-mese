@@ -63,3 +63,46 @@
   aplicar();
   requestAnimationFrame(t => { ultimo = t; passo(t); });
 })();
+
+
+(() => {
+  const trilho = document.querySelector('.universos');
+  if (!trilho) return;
+  const cards = [...trilho.querySelectorAll('.universo')];
+  const cont = document.querySelector('.multi__cont');
+  const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const comportamento = reduzir ? 'auto' : 'smooth';
+  let atual = 0;
+
+  const passo = () => cards[0].offsetWidth + parseFloat(getComputedStyle(trilho).columnGap || 0);
+  const ir = i => {
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    const alvo = cards[i].offsetLeft - (trilho.clientWidth - cards[i].offsetWidth) / 2;
+    trilho.scrollTo({ left: alvo, behavior: comportamento });
+  };
+  const atualizar = () => {
+    const centro = trilho.scrollLeft + trilho.clientWidth / 2;
+    let melhor = 0, dist = Infinity;
+    cards.forEach((c, i) => {
+      const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - centro);
+      if (d < dist) { dist = d; melhor = i; }
+    });
+    atual = melhor;
+    if (cont) cont.textContent = `${atual + 1} / ${cards.length}`;
+  };
+
+  trilho.addEventListener('scroll', () => requestAnimationFrame(atualizar), { passive: true });
+  document.querySelectorAll('.multi__btn').forEach(b =>
+    b.addEventListener('click', () => ir(atual + Number(b.dataset.dir))));
+  const sorteio = document.querySelector('.multi__sorteio');
+  if (sorteio) sorteio.addEventListener('click', () => {
+    let i;
+    do { i = Math.floor(Math.random() * cards.length); } while (i === atual && cards.length > 1);
+    ir(i);
+  });
+  trilho.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); ir(atual + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); ir(atual - 1); }
+  });
+  atualizar();
+})();
