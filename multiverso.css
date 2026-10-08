@@ -1,3 +1,4 @@
+/* ===== Multiverso: um card por vez, sorteio sem repetir ===== */
 .mv { margin-inline: -.6rem; }
 .mv__vazio, .mv__card {
   min-height: 19rem; border: 2px solid var(--ouro); border-radius: 14px;
@@ -36,3 +37,20 @@
 
 .mv__cont { margin: -.4rem 0 0; text-align: center; font-family: var(--f-titulo); font-size: .95rem; color: var(--verde); }
 .js .multi__sorteio { justify-self: center; }
+
+/* ===== Filtro de foto antiga ===== */
+.mv__card {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: linear-gradient(160deg, var(--verde), var(--verde-fundo));
+}
+.mv__card::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background: var(--img) var(--pos, center) / cover no-repeat;
+  filter: sepia(.8) saturate(.75) contrast(.92) brightness(.92);
+}
+.mv__card::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 45%, rgba(40,22,8,.55) 100%),
+    linear-gradient(180deg, rgba(40,26,12,.15) 0%, rgba(15,29,21,.55) 38%, rgba(15,29,21,.88) 100%);
+}
