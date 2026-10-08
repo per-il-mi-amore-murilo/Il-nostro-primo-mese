@@ -1,19 +1,4 @@
 /* ===== Elementos de filme antigo ===== */
-/* riscos de projetor */
-body::before {
-  content: ""; position: fixed; inset: 0; z-index: 98; pointer-events: none;
-  background:
-    linear-gradient(90deg, transparent 14%, rgba(244,232,208,.5) 14% calc(14% + 1px), transparent calc(14% + 1px)),
-    linear-gradient(90deg, transparent 63%, rgba(244,232,208,.4) 63% calc(63% + 1px), transparent calc(63% + 1px)),
-    linear-gradient(90deg, transparent 88%, rgba(244,232,208,.35) 88% calc(88% + 1px), transparent calc(88% + 1px));
-  opacity: 0; animation: riscos 3.6s steps(1) infinite;
-}
-@keyframes riscos {
-  0%, 100% { opacity: 0; } 8% { opacity: .5; translate: 0 0; } 10% { opacity: 0; }
-  42% { opacity: .4; translate: 22vw 0; } 44% { opacity: 0; }
-  71% { opacity: .45; translate: -30vw 0; } 73% { opacity: 0; }
-}
-
 /* claquete */
 .claquete { width: min(74%, 270px); margin: 0 auto 1.3rem; transform: rotate(-3deg); font-family: var(--f-texto); }
 .claquete__topo {
@@ -96,3 +81,74 @@ body { background: linear-gradient(var(--verde-fundo) 0, var(--verde-fundo) 100%
 /* ===== Sem efeitos piscando na tela toda ===== */
 body::before { content: none !important; animation: none !important; }  /* riscos de projetor */
 .grao { display: none !important; }                                      /* granulado tremendo */
+
+/* ===== Tela inicial mais limpa ===== */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(212,165,116,.12), transparent 58%),
+    linear-gradient(var(--verde) 0%, var(--verde-fundo) 100%);
+  padding-top: calc(2.2rem + env(safe-area-inset-top));
+}
+.hero::before { background: radial-gradient(closest-side, rgba(212,165,116,.1), transparent); }
+
+/* claquete: com espaço em cima pra tampa aberta não ser cortada */
+.claquete { width: min(68%, 240px); margin: 2.8rem auto 1.6rem; }
+@keyframes bater { 0%, 78%, 100% { transform: rotate(-12deg); } 86%, 92% { transform: rotate(0); } }
+
+/* etiqueta do capítulo: compacta e centralizada, sem esticar de ponta a ponta */
+.hero__cena {
+  font-size: .7rem; letter-spacing: .14em; padding: .35rem .85rem;
+  border-radius: 2px; max-width: calc(100% - 2rem);
+}
+.hero__titulo { margin-top: 1.4rem; }
+.hero__sub { margin-top: .9rem; margin-bottom: 2.2rem; }
+.hero__sub::after {
+  content: "— ♥ —"; display: block; margin-top: 1rem;
+  font-style: normal; font-size: .9rem; letter-spacing: .2em; color: var(--ouro);
+}
+
+/* ===== Etiqueta "Cena X · Take X" não encosta mais na borda rasgada ===== */
+.secao { padding-top: 3.6rem; }
+.secao[data-cena]::before { top: 1.35rem; left: 1.5rem; }
+
+/* ===== Multiverso: folha sem bug de renderização no celular ===== */
+main { filter: none; }
+#cartas { animation: none !important; opacity: 1; translate: none; }
+.multi__carta { transform: none; isolation: isolate; }
+
+/* ===== Tela inicial mais limpa ===== */
+.hero { padding: calc(3.2rem + env(safe-area-inset-top)) 0 2.2rem; }
+.claquete { width: min(68%, 250px); margin: 0 auto 2.2rem; transform: rotate(-2deg); }
+@keyframes bater { 0%, 78%, 100% { transform: rotate(-11deg); } 86%, 92% { transform: rotate(0); } }
+
+.hero__cena {
+  margin: 0 auto; padding: .35rem .9rem;
+  font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+  border-color: rgba(212,165,116,.4); border-radius: 2px;
+}
+.hero__cena::before { width: .5rem; height: .5rem; box-shadow: 0 0 5px 1px var(--vinho); }
+
+.hero__titulo {
+  margin: 1.6rem 1rem 0; line-height: 1.12;
+  text-shadow: 2px 2px 0 var(--verde-musgo), 0 0 22px rgba(201,162,39,.28);
+}
+.hero__titulo::after {
+  content: "— ♥ —"; display: block; margin-top: 1rem;
+  font-size: 1rem; letter-spacing: .2em; color: var(--ouro); text-shadow: none;
+}
+.hero__sub { margin: 1rem auto 2.4rem; font-size: .95rem; line-height: 1.7; opacity: .9; }
+.hero__dica { margin-top: 1.2rem; }
+
+/* ===== Etiqueta "Cena · Take" sem corte ===== */
+.secao { padding-top: 3.6rem; }
+.secao[data-cena]::before { top: 1.5rem; left: 1.4rem; }
+#creditos[data-cena]::before { top: 1.5rem; }
+
+/* ===== Seção do multiverso sem a folha bugar ===== */
+/* animação de entrada em elemento enorme com clip-path faz o Chrome do celular
+   deixar partes sem desenhar; aqui a seção aparece direto e a carta fica reta */
+.secao { animation: none !important; }
+.multi__carta { transform: none; }
+
+/* sem tremedeira de projetor nos quadros do rolo */
+.quadro { animation: none !important; }
