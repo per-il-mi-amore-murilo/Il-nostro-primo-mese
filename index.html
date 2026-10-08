@@ -12,12 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="multiverso.css">
+  <link rel="stylesheet" href="filme.css">
 </head>
 <body>
   <div class="grao" aria-hidden="true"></div>
 
   <header class="hero">
     <div class="coracoes" aria-hidden="true"><span style="--x:6%;--t:11s;--d:0s;--z:1rem">♥</span><span style="--x:18%;--t:14s;--d:3s;--z:1.6rem">♥</span><span style="--x:30%;--t:10s;--d:6s;--z:0.9rem">♥</span><span style="--x:42%;--t:13s;--d:1.5s;--z:1.3rem">♥</span><span style="--x:55%;--t:12s;--d:8s;--z:1.1rem">♥</span><span style="--x:67%;--t:15s;--d:4.5s;--z:1.8rem">♥</span><span style="--x:78%;--t:11s;--d:2s;--z:1rem">♥</span><span style="--x:88%;--t:13s;--d:7s;--z:1.4rem">♥</span><span style="--x:95%;--t:10s;--d:9.5s;--z:0.8rem">♥</span></div>
+    <div class="claquete" aria-hidden="true"><div class="claquete__topo"></div><div class="claquete__corpo"><span>CENA <b>01</b></span><span>TAKE <b>01</b></span><span>DIREÇÃO <b>ANNA</b></span><span>ELENCO <b>NÓS DOIS</b></span></div></div>
     <p class="hero__cena">Capítulo 01 · O Início de Tudo</p>
     <h1 class="hero__titulo">Para você,<br>meu amor</h1>
 
@@ -44,7 +46,7 @@
   </header>
 
   <main>
-    <section class="secao" id="galeria" aria-labelledby="t-galeria">
+    <section class="secao" data-cena="Cena 02 · Take 1" id="galeria" aria-labelledby="t-galeria">
       <h2 class="secao__titulo" id="t-galeria">Nossos retratos</h2>
       <div class="galeria">
         <figure class="polaroid">
@@ -80,7 +82,9 @@
       </div>
     </section>
 
-    <section class="secao" id="musicas" aria-labelledby="t-musicas">
+    <div class="perfuracao" aria-hidden="true"></div>
+
+    <section class="secao" data-cena="Cena 03 · Take 1" id="musicas" aria-labelledby="t-musicas">
       <h2 class="secao__titulo" id="t-musicas">As músicas da nossa vida</h2>
       <p class="secao__intro">Toque no cartão da música para ouvir no Spotify.</p>
       <ol class="ranking">
@@ -160,7 +164,9 @@
       </ol>
     </section>
 
-    <section class="secao" id="cartas" aria-labelledby="t-cartas">
+    <div class="perfuracao" aria-hidden="true"></div>
+
+    <section class="secao" data-cena="Cena 04 · Take 1" id="cartas" aria-labelledby="t-cartas">
       <h2 class="secao__titulo" id="t-cartas">Em outro multiverso</h2>
       <p class="secao__intro">Toque em sortear para visitar outros universos.</p>
       <div class="multi">
@@ -172,7 +178,7 @@
         </div>
         <div class="mv" aria-live="polite">
           <div class="mv__vazio"><p>✦<br>Aperte em sortear<br>para abrir um universo</p></div>
-          <article class="mv__card" style="--img:url('images/personagem01.jpeg');--pos:center" aria-label="Universo 01: Carol Ferris &amp; Hal Jordan">
+          <article class="mv__card" style="--img:url('images/personagem01.jpg');--pos:center" aria-label="Universo 01: Carol Ferris &amp; Hal Jordan">
             <div class="mv__topo"><h3 class="mv__nomes">Carol Ferris &amp; Hal Jordan</h3></div>
             <p class="mv__texto">Você voando sem freio com essa coragem meio doida (só falta virar piloto de testes) e eu com o meu jeito racional e de “personalidade forte” segundo você, que não abaixa a cabeça pra ninguém. Mas que no fundo (nem tão fundo assim) é completamente apaixonada por ti a ponto de mover galáxias.</p>
           </article>
@@ -210,7 +216,9 @@
       </div>
     </section>
 
-    <section class="secao" id="creditos" aria-labelledby="t-creditos">
+    <div class="perfuracao" aria-hidden="true"></div>
+
+    <section class="secao" data-cena="Cena Final · Take 1" id="creditos" aria-labelledby="t-creditos">
       <h2 class="secao__titulo" id="t-creditos">Créditos</h2>
       <p class="secao__intro">Todo filme bonito tem créditos bonitos. Toque para pausar.</p>
       <div class="creditos" role="region" aria-label="Créditos do filme" tabindex="0">
