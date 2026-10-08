@@ -68,3 +68,31 @@ body { background: linear-gradient(var(--verde-fundo) 0, var(--verde-fundo) 100%
 .fim__titulo { transition: text-shadow 1.5s ease, letter-spacing 2s ease; }
 .fim.on .fim__titulo { letter-spacing: .06em; text-shadow: 0 0 36px rgba(201,162,39,.7), 4px 4px 0 var(--verde-musgo); }
 .fim.on .fim__cortina { color: var(--ouro); }
+
+/* ===== Créditos + The End: uma cena só, sem caixa ===== */
+#creditos {
+  margin: 2.75rem 0 0; padding-inline: 1.3rem; padding-bottom: 0;
+  /* degradê contínuo: começa na cor do site e termina na cor exata do The End */
+  background: linear-gradient(var(--verde-fundo) 0, var(--verde-fundo) 25%, #050a07 100%);
+}
+#creditos .creditos {
+  background: none; border: 0; border-radius: 0; box-shadow: none; margin-inline: 0; max-width: 600px;
+  height: 38rem;
+  /* o texto some suavemente em cima e embaixo, sem nenhuma borda */
+  -webkit-mask-image: linear-gradient(transparent 0, #000 18%, #000 62%, transparent 100%);
+          mask-image: linear-gradient(transparent 0, #000 18%, #000 62%, transparent 100%);
+}
+#creditos .creditos::before,
+#creditos .creditos::after { content: none; }
+
+.fim {
+  margin-top: 0; padding-top: 1rem; border-top: 0;
+  background:
+    radial-gradient(circle at 50% 55%, rgba(31,61,46,.9), transparent 62%),
+    repeating-radial-gradient(circle at 50% 55%, transparent 0 22px, rgba(244,232,208,.06) 22px 23px),
+    #050a07;
+}
+
+/* ===== Sem efeitos piscando na tela toda ===== */
+body::before { content: none !important; animation: none !important; }  /* riscos de projetor */
+.grao { display: none !important; }                                      /* granulado tremendo */
