@@ -176,5 +176,5 @@ button, summary, input, textarea { font-family: var(--f-texto); }
 .multi__sorteio { font-family: var(--f-titulo); }
 
 /* ===== Claquete no rodapé: entre "to be continued" e "Direção, roteiro e amor" ===== */
-.fim .claquete { margin: 4.4rem auto 2rem; }
+.fim .claquete { margin: 10rem auto 2rem; }
 .hero__dica { margin-bottom: 1.2rem; }
