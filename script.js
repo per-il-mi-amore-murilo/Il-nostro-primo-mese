@@ -4,8 +4,8 @@
   const rolo = root.querySelector('.creditos__rolo');
   const intro = root.querySelector('.creditos__intro');
   const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const inclinacao = reduzir ? 0 : 52;
-  const velocidade = 95;
+  const inclinacao = 0;
+  const velocidade = 58;
   const tempoIntro = 3200;
 
   let fase = 'intro', y = 0, inicio = 0, ultimo = 0, pausado = false, visivel = false;
@@ -16,7 +16,7 @@
   function aplicar() {
     const p = Math.min(1, Math.max(0, (comeco() - y) / (comeco() - fimY())));
     rolo.style.opacity = p > 0.93 ? String(Math.max(0, (1 - p) / 0.07)) : '1';
-    rolo.style.transform = `rotateX(${inclinacao}deg) translateY(${y}px)`;
+    rolo.style.transform = `translateY(${y}px)`;
   }
 
   function reiniciar(agora) {
