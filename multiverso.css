@@ -79,3 +79,39 @@
   content: "— ✦ —"; display: block; margin-bottom: .4rem; font-size: .9rem; letter-spacing: .3em; color: var(--ouro);
 }
 .fita--canto { top: auto; bottom: -10px; left: auto; right: 6%; width: 70px; height: 24px; --fita-giro: 38deg; transform: rotate(var(--fita-giro)); }
+
+/* ===== Fundo "uau" do cartão vazio ===== */
+.mv__vazio {
+  position: relative; overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(201,162,39,.25), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(139,46,46,.3), transparent 50%),
+    linear-gradient(160deg, #1f3d2e, #0a140e 70%);
+  background-size: 160% 160%, 160% 160%, auto;
+  animation: mv-aurora 9s ease-in-out infinite alternate;
+  box-shadow: 0 0 28px rgba(201,162,39,.35), inset 0 0 40px rgba(0,0,0,.6);
+}
+.mv__vazio::before { /* feixe giratório */
+  content: ""; position: absolute; inset: -60%; z-index: -2;
+  background: conic-gradient(from 0deg, transparent 0 70%, rgba(240,210,122,.28) 80%, transparent 90%, transparent 100%);
+  animation: mv-gira 12s linear infinite;
+}
+.mv__vazio::after { /* estrelas cintilando */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(2px 2px at 12% 22%, #f0d27a, transparent 60%),
+    radial-gradient(1.5px 1.5px at 30% 78%, #fff, transparent 60%),
+    radial-gradient(2px 2px at 55% 12%, #fff, transparent 60%),
+    radial-gradient(2.5px 2.5px at 72% 60%, #f0d27a, transparent 60%),
+    radial-gradient(1.5px 1.5px at 88% 25%, #fff, transparent 60%),
+    radial-gradient(2px 2px at 45% 50%, #f0d27a, transparent 60%),
+    radial-gradient(1.5px 1.5px at 8% 85%, #fff, transparent 60%),
+    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.55) 100%);
+  animation: mv-pisca 2.8s ease-in-out infinite alternate;
+}
+.mv__vazio p { animation: mv-flutua 4s ease-in-out infinite; text-shadow: 0 0 14px rgba(240,210,122,.55); }
+.mv__vazio p::first-line { text-shadow: 0 0 18px #f0d27a, 0 0 36px rgba(201,162,39,.7); }
+@keyframes mv-aurora { to { background-position: 100% 100%, 0 0, 0 0; } }
+@keyframes mv-gira { to { transform: rotate(360deg); } }
+@keyframes mv-pisca { from { opacity: .45; } to { opacity: 1; } }
+@keyframes mv-flutua { 50% { transform: translateY(-6px); } }
