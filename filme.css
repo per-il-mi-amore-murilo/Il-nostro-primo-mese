@@ -1,0 +1,70 @@
+/* ===== Elementos de filme antigo ===== */
+/* riscos de projetor */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 98; pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 14%, rgba(244,232,208,.5) 14% calc(14% + 1px), transparent calc(14% + 1px)),
+    linear-gradient(90deg, transparent 63%, rgba(244,232,208,.4) 63% calc(63% + 1px), transparent calc(63% + 1px)),
+    linear-gradient(90deg, transparent 88%, rgba(244,232,208,.35) 88% calc(88% + 1px), transparent calc(88% + 1px));
+  opacity: 0; animation: riscos 3.6s steps(1) infinite;
+}
+@keyframes riscos {
+  0%, 100% { opacity: 0; } 8% { opacity: .5; translate: 0 0; } 10% { opacity: 0; }
+  42% { opacity: .4; translate: 22vw 0; } 44% { opacity: 0; }
+  71% { opacity: .45; translate: -30vw 0; } 73% { opacity: 0; }
+}
+
+/* claquete */
+.claquete { width: min(74%, 270px); margin: 0 auto 1.3rem; transform: rotate(-3deg); font-family: var(--f-texto); }
+.claquete__topo {
+  height: 26px; border: 3px solid var(--papel); border-bottom: 0;
+  background: repeating-linear-gradient(115deg, #111 0 14px, var(--papel) 14px 28px);
+  transform-origin: left bottom; animation: bater 5s ease-in-out infinite;
+}
+@keyframes bater { 0%, 78%, 100% { transform: rotate(-16deg); } 86%, 92% { transform: rotate(0); } }
+.claquete__corpo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px; padding: .5rem .6rem;
+  border: 3px solid var(--papel); background: #111; text-align: left;
+  font-size: .6rem; letter-spacing: .14em; color: var(--caramelo);
+}
+.claquete__corpo b { display: block; font-family: var(--f-titulo); font-weight: 400; font-size: .95rem; color: var(--papel); letter-spacing: .06em; }
+
+/* etiqueta de cena nas seções */
+.secao[data-cena]::before {
+  content: attr(data-cena); position: absolute; top: .55rem; left: .9rem;
+  padding: .1rem .45rem; font-size: .58rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--verde); border: 1px solid rgba(31,61,46,.5); border-radius: 2px; opacity: .8;
+}
+#creditos[data-cena]::before { color: var(--caramelo); border-color: rgba(212,165,116,.5); }
+
+/* tira de película entre as seções */
+.perfuracao {
+  height: 30px; margin: 0; border-block: 2px solid #000;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 9px, rgba(244,232,208,.88) 9px 21px, transparent 21px 30px) center / 100% 12px no-repeat,
+    #080806;
+  box-shadow: 0 6px 14px rgba(0,0,0,.5);
+}
+
+/* créditos fluindo para o The End */
+#creditos {
+  background: none; clip-path: none; box-shadow: none; color: var(--papel);
+  margin-bottom: 0; padding-bottom: 0;
+}
+#creditos .secao__titulo { color: var(--papel); text-shadow: 0 0 18px rgba(201,162,39,.35); }
+#creditos .secao__intro { color: var(--caramelo); }
+#creditos .creditos { border: 0; border-radius: 0; box-shadow: none; background: none; height: 34rem; max-width: none; margin-inline: -.4rem; }
+#creditos .creditos::before { background: linear-gradient(var(--verde-fundo) 5%, transparent); }
+#creditos .creditos::after { height: 30%; background: linear-gradient(transparent, #050a07 96%); }
+.fim {
+  margin-top: -1px; border-top: 0;
+  background:
+    linear-gradient(#050a07, transparent 18%),
+    radial-gradient(circle at 50% 50%, rgba(31,61,46,.9), transparent 62%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 22px, rgba(244,232,208,.06) 22px 23px),
+    #050a07;
+}
+body { background: linear-gradient(var(--verde-fundo) 0, var(--verde-fundo) 100%); }
+.fim__titulo { transition: text-shadow 1.5s ease, letter-spacing 2s ease; }
+.fim.on .fim__titulo { letter-spacing: .06em; text-shadow: 0 0 36px rgba(201,162,39,.7), 4px 4px 0 var(--verde-musgo); }
+.fim.on .fim__cortina { color: var(--ouro); }
