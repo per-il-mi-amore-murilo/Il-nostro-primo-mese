@@ -5,8 +5,8 @@
   const intro = root.querySelector('.creditos__intro');
   const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const inclinacao = reduzir ? 0 : 52;
-  const velocidade = 42;
-  const tempoIntro = 4500;
+  const velocidade = 95;
+  const tempoIntro = 3200;
 
   let fase = 'intro', y = 0, inicio = 0, ultimo = 0, pausado = false, visivel = false;
 
