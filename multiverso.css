@@ -1,0 +1,38 @@
+.mv { margin-inline: -.6rem; }
+.mv__vazio, .mv__card {
+  min-height: 19rem; border: 2px solid var(--ouro); border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.4), inset 0 0 0 4px rgba(15,29,21,.5);
+}
+.mv__vazio {
+  display: none; place-items: center; padding: 1.5rem; text-align: center;
+  font-family: var(--f-titulo); font-size: 1.15rem; line-height: 1.6; color: var(--caramelo);
+  background: radial-gradient(circle at 50% 0%, rgba(74,107,82,.45), transparent 65%), linear-gradient(160deg, var(--verde), var(--verde-fundo));
+}
+.mv__vazio p { margin: 0; }
+.mv__vazio p::first-line { font-size: 2rem; color: var(--ouro); }
+.js .mv__vazio { display: grid; }
+.mv__vazio[hidden] { display: none !important; }
+
+.mv__card {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+  padding: 1rem 1rem 1.1rem; text-align: center; color: var(--papel); margin-bottom: 1rem;
+  background:
+    linear-gradient(180deg, rgba(15,29,21,.15) 0%, rgba(15,29,21,.55) 38%, rgba(15,29,21,.88) 100%),
+    var(--img) var(--pos, center) / cover no-repeat,
+    linear-gradient(160deg, var(--verde), var(--verde-fundo));
+}
+.js .mv__card { display: none; margin-bottom: 0; }
+.js .mv__card.on { display: flex; animation: mv-entra .55s ease both; }
+@keyframes mv-entra {
+  from { opacity: 0; transform: scale(.94) rotate(-1.2deg); filter: brightness(1.8); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+.mv__num { margin: 0; font-size: .68rem; letter-spacing: .35em; text-transform: uppercase; color: var(--caramelo); text-shadow: 0 1px 4px #000; }
+.mv__nomes {
+  margin: .35rem 0 0; font-family: var(--f-titulo); font-weight: 400; font-size: 1.4rem; line-height: 1.2;
+  color: #f0d27a; text-shadow: 0 2px 6px #000, 0 0 14px rgba(0,0,0,.8);
+}
+.mv__texto { margin: 0; font-size: .9rem; line-height: 1.55; text-shadow: 0 1px 4px #000, 0 0 10px rgba(0,0,0,.85); }
+
+.mv__cont { margin: -.4rem 0 0; text-align: center; font-family: var(--f-titulo); font-size: .95rem; color: var(--verde); }
+.js .multi__sorteio { justify-self: center; }
