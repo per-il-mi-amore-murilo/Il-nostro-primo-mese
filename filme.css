@@ -118,8 +118,9 @@ main { filter: none; }
 
 /* ===== Tela inicial mais limpa ===== */
 .hero { padding: calc(3.2rem + env(safe-area-inset-top)) 0 2.2rem; }
-.claquete { width: min(68%, 250px); margin: 0 auto 2.2rem; transform: rotate(-2deg); }
-@keyframes bater { 0%, 78%, 100% { transform: rotate(-11deg); } 86%, 92% { transform: rotate(0); } }
+/* claquete: tamanho e abertura originais, só mais pra baixo (a tampa não é mais cortada) */
+.claquete { width: min(74%, 270px); margin: 4.6rem auto 2.4rem; transform: rotate(-3deg); }
+@keyframes bater { 0%, 78%, 100% { transform: rotate(-16deg); } 86%, 92% { transform: rotate(0); } }
 
 .hero__cena {
   margin: 0 auto; padding: .35rem .9rem;
